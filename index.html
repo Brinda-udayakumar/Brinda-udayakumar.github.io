@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Brinda Udayakumar - MS Computer Science at Arizona State University. Software engineering, computer vision, autonomy and applied machine learning.">
+<meta name="author" content="Brinda Udayakumar">
+<meta property="og:title" content="Brinda Udayakumar">
+<meta property="og:description" content="Software engineering, computer vision, autonomy and applied machine learning.">
+<meta property="og:type" content="website">
+<style>
+  html{-webkit-text-size-adjust:100%;}
+  img{max-width:100%;}
+  [hidden]{display:none !important;}
+</style>
+<title>Brinda Udayakumar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+
+<style>
+  /* Single light theme, painted explicitly. */
+  :root{
+    --bg:#E9ECF0;
+    --bg-2:#E2E6EC;
+    --surface:#FFFFFF;
+    --surface-2:#F4F6F9;
+    --ink:#0E141B;
+    --ink-soft:#333D48;
+    --muted:#67727E;
+    --line:#DCE1E7;
+    --line-strong:#B7C0CA;
+    --accent:#8A5410;
+    --focus:#1F5FA8;
+    --shadow:0 1px 2px rgba(14,20,27,.04), 0 10px 26px -16px rgba(14,20,27,.34);
+    --shadow-lift:0 2px 6px rgba(14,20,27,.07), 0 24px 48px -22px rgba(14,20,27,.45);
+    --d-autonomy:#96560B;
+    --d-vision:#0F6361;
+    --d-medical:#9A3A4B;
+    --d-nlp:#374A98;
+    --d-ml:#3F5F22;
+    --d-eng:#544E5C;
+    color-scheme: light;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    color:var(--ink);
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(760px 420px at 88% -4%, rgba(178,122,30,.16), transparent 62%),
+      radial-gradient(620px 420px at -6% 14%, rgba(15,99,97,.10), transparent 60%),
+      radial-gradient(900px 600px at 50% 108%, rgba(55,74,152,.09), transparent 64%);
+    background-attachment:fixed;
+    font-family:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+    font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.038;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  main,.topbar{position:relative;z-index:2;}
+  .wrap{width:100%;max-width:1080px;margin:0 auto;padding-left:20px;padding-right:20px;}
+  a{color:inherit;}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px;}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums;}
+  .eyebrow{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0;
+  }
+
+  /* ---------------- top bar ---------------- */
+  .topbar{
+    position:sticky;top:env(safe-area-inset-top,0px);z-index:40;
+    background:rgba(233,236,240,.84);
+    backdrop-filter:saturate(1.4) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-block:13px;}
+  .brand{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;font-weight:500;
+    text-transform:uppercase;text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:10px;
+  }
+  .brand i{width:9px;height:9px;border:2px solid var(--accent);display:inline-block;font-style:normal;}
+  .topnav{margin-left:auto;display:flex;gap:22px;flex-wrap:wrap;align-items:center;}
+  .topnav a{
+    font-size:13.5px;color:var(--ink-soft);text-decoration:none;
+    padding-block:3px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s;
+  }
+  .topnav a:hover{color:var(--ink);border-bottom-color:var(--accent);}
+  .topnav a.cta{
+    border:1px solid var(--line-strong);border-radius:999px;padding:6px 15px;
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);
+  }
+  .topnav a.cta:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+
+  /* ---------------- hero ---------------- */
+  .hero{padding-block:76px 52px;}
+  .hero > div{max-width:760px;}
+  .plate{position:relative;padding-left:2px;}
+  .plate::before,.plate::after{content:"";position:absolute;width:26px;height:26px;border:2px solid var(--accent);opacity:.85;}
+  .plate::before{top:-16px;left:-16px;border-right:0;border-bottom:0;}
+  .plate::after{bottom:-16px;right:-16px;border-left:0;border-top:0;}
+  .hero h1{
+    font-family:"Newsreader",Georgia,serif;font-weight:500;
+    font-size:clamp(44px,7.4vw,78px);line-height:.96;letter-spacing:-.025em;
+    margin:16px 0 0;text-wrap:balance;
+  }
+  .hero h1 span{display:block;color:var(--accent);}
+  .hero .lede{
+    font-family:"Newsreader",Georgia,serif;font-size:clamp(18px,2.2vw,21.5px);
+    line-height:1.58;color:var(--ink-soft);max-width:54ch;margin:26px 0 0;
+  }
+  .hero .lede em{color:var(--ink);font-style:italic;}
+  .status{display:flex;flex-direction:column;gap:6px;margin-top:26px;font-size:13.5px;color:var(--muted);}
+  .status b{color:var(--ink-soft);font-weight:500;}
+  .dot{
+    display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);
+    margin-right:9px;vertical-align:1px;box-shadow:0 0 0 4px rgba(138,84,16,.14);
+  }
+
+  .facts{
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .fact{background:var(--surface);padding:20px;}
+  .fact b{
+    display:block;font-family:"Newsreader",Georgia,serif;font-variant-numeric:tabular-nums;
+    font-size:38px;font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--ink);
+  }
+  .fact b i{font-style:normal;font-size:15px;color:var(--muted);font-family:"IBM Plex Mono",monospace;}
+  .fact span{
+    display:block;font-size:11px;line-height:1.45;color:var(--muted);margin-top:10px;
+    font-family:"IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
+  }
+
+  /* ---------------- sections ---------------- */
+  section{padding-block:60px;}
+  #work{
+    background:linear-gradient(180deg, var(--bg-2), rgba(226,230,236,.4));
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .sec-head{
+    display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+    border-top:1px solid var(--line-strong);padding-top:18px;margin-bottom:30px;
+  }
+  #work .sec-head{border-top:0;padding-top:0;}
+  .sec-head h2{
+    font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(28px,3.6vw,38px);
+    margin:0;letter-spacing:-.022em;
+  }
+  .sec-head p{margin:0 0 0 auto;font-size:13px;color:var(--muted);}
+
+  /* ---------------- filters ---------------- */
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
+  .chip{
+    font-size:12.5px;font-family:"IBM Plex Mono",monospace;letter-spacing:.02em;
+    background:var(--surface);color:var(--ink-soft);border:1px solid var(--line-strong);
+    padding:7px 15px;border-radius:999px;cursor:pointer;
+    transition:background .15s,color .15s,border-color .15s,transform .15s,box-shadow .15s;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-1px);box-shadow:var(--shadow);}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);}
+
+  /* ---------------- project records ---------------- */
+  .records{display:flex;flex-direction:column;gap:20px;}
+  .rec{
+    position:relative;background:var(--surface);border:1px solid var(--line);
+    padding:30px 32px;box-shadow:var(--shadow);
+    transition:box-shadow .22s ease, transform .22s ease, border-color .22s ease;
+  }
+  .rec:hover{box-shadow:var(--shadow-lift);transform:translateY(-3px);border-color:var(--line-strong);}
+  .rec::before,.rec::after{
+    content:"";position:absolute;width:15px;height:15px;
+    border:2px solid var(--dom,var(--accent));opacity:0;transition:opacity .22s ease;
+  }
+  .rec::before{top:-1px;left:-1px;border-right:0;border-bottom:0;}
+  .rec::after{bottom:-1px;right:-1px;border-left:0;border-top:0;}
+  .rec:hover::before,.rec:hover::after{opacity:1;}
+
+  .rec[data-dom="autonomy"]{--dom:var(--d-autonomy);}
+  .rec[data-dom="vision"]{--dom:var(--d-vision);}
+  .rec[data-dom="medical"]{--dom:var(--d-medical);}
+  .rec[data-dom="nlp"]{--dom:var(--d-nlp);}
+  .rec[data-dom="ml"]{--dom:var(--d-ml);}
+  .rec[data-dom="eng"]{--dom:var(--d-eng);}
+
+  .rec-top{
+    display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+    padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--line);
+  }
+  .rec-domain{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--dom,var(--accent));font-weight:600;
+  }
+  .rec-top .sep{width:4px;height:4px;background:var(--line-strong);border-radius:50%;}
+  .rec-place{font-size:13px;color:var(--muted);}
+  .rec-date{
+    font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:12.5px;color:var(--muted);margin-left:auto;
+  }
+  .live{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+    text-transform:uppercase;font-weight:600;color:var(--dom,var(--accent));
+    background:color-mix(in srgb, var(--dom,var(--accent)) 12%, #fff);
+    border:1px solid color-mix(in srgb, var(--dom,var(--accent)) 40%, transparent);
+    padding:3px 10px;
+  }
+  .rec h3{
+    font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:30px;line-height:1.18;
+    margin:0 0 14px;letter-spacing:-.022em;text-wrap:balance;max-width:24ch;
+  }
+  .rec p{margin:0 0 20px;max-width:72ch;color:var(--ink-soft);font-size:15.5px;}
+  .metrics{
+    display:flex;flex-wrap:wrap;gap:1px;margin:0 0 20px;
+    border:1px solid var(--line);background:var(--line);width:fit-content;max-width:100%;
+  }
+  .metric{background:var(--surface-2);padding:11px 18px;min-width:116px;}
+  .metric b{
+    display:block;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;
+    font-size:16px;font-weight:600;color:var(--ink);line-height:1.25;
+  }
+  .metric span{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+  .tag{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);
+    border:1px solid var(--line);padding:3px 9px;background:var(--surface-2);
+  }
+  .links{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+  .link{
+    display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;
+    text-decoration:none;color:#fff;background:var(--dom,var(--accent));
+    border:1px solid var(--dom,var(--accent));padding:9px 16px;
+    transition:opacity .15s,transform .15s;
+  }
+  .link:hover{opacity:.87;transform:translateY(-1px);}
+  .link.quiet{background:var(--surface-2);color:var(--ink);border-color:var(--line-strong);}
+  .link.quiet:hover{color:var(--dom,var(--accent));border-color:var(--dom,var(--accent));}
+  .link svg{width:15px;height:15px;flex:none;}
+  .link-slot{
+    font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);
+    border:1px dashed var(--line-strong);padding:8px 12px;
+  }
+
+  /* ---------------- publications ---------------- */
+  .pubs{display:flex;flex-direction:column;gap:14px;}
+  .pub{
+    display:grid;grid-template-columns:150px 1fr;gap:26px;align-items:baseline;
+    background:var(--surface);border:1px solid var(--line);padding:20px 22px;box-shadow:var(--shadow);
+    transition:box-shadow .2s ease,transform .2s ease;
+  }
+  .pub:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px);}
+  .pub .rec-date{margin-left:0;}
+  .pub h3{font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:20px;margin:0 0 5px;line-height:1.3;}
+  .pub p{margin:0;font-size:13.5px;color:var(--muted);}
+
+  /* ---------------- experience ---------------- */
+  .roles{display:flex;flex-direction:column;border-left:2px solid var(--line-strong);padding-left:28px;}
+  .role{position:relative;padding-bottom:34px;}
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:"";position:absolute;left:-35px;top:7px;width:12px;height:12px;
+    background:var(--surface);border:2px solid var(--accent);border-radius:50%;
+    box-shadow:0 0 0 4px rgba(233,236,240,.9);
+  }
+  .role .rec-date{display:block;margin:0 0 6px;}
+  .role h3{font-family:"IBM Plex Sans",sans-serif;font-weight:600;font-size:17.5px;margin:0 0 3px;}
+  .role .org{font-size:13.5px;color:var(--muted);margin:0 0 13px;}
+  .role ul{margin:0;padding-left:18px;color:var(--ink-soft);font-size:14.5px;}
+  .role li{margin-bottom:8px;max-width:66ch;}
+
+  /* ---------------- skills ---------------- */
+  .skills{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;
+    background:var(--line);border:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .skill{background:var(--surface);padding:22px;transition:background .18s ease;}
+  .skill:hover{background:var(--surface-2);}
+  .skill h4{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+    margin:0 0 11px;font-weight:600;color:var(--dom,var(--accent));
+  }
+  .skill[data-dom="autonomy"]{--dom:var(--d-autonomy);}
+  .skill[data-dom="vision"]{--dom:var(--d-vision);}
+  .skill[data-dom="medical"]{--dom:var(--d-medical);}
+  .skill[data-dom="nlp"]{--dom:var(--d-nlp);}
+  .skill[data-dom="ml"]{--dom:var(--d-ml);}
+  .skill[data-dom="eng"]{--dom:var(--d-eng);}
+  .skill p{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.58;}
+
+  /* ---------------- contact ---------------- */
+  .contact{
+    background:var(--surface);border:1px solid var(--line-strong);
+    padding:44px 38px;box-shadow:var(--shadow-lift);position:relative;overflow:hidden;
+  }
+  .contact::after{
+    content:"";position:absolute;right:-56px;bottom:-72px;width:240px;height:240px;
+    border:2px solid var(--accent);opacity:.12;transform:rotate(18deg);
+  }
+  .contact h2{
+    font-family:"Newsreader",Georgia,serif;font-weight:500;font-size:clamp(29px,4.2vw,42px);
+    margin:14px 0 16px;letter-spacing:-.025em;text-wrap:balance;
+  }
+  .contact p{margin:0 0 26px;max-width:56ch;color:var(--ink-soft);}
+  .contact-links{display:flex;flex-wrap:wrap;gap:12px;position:relative;z-index:1;}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;
+    text-decoration:none;color:#fff;background:var(--ink);border:1px solid var(--ink);
+    padding:12px 20px;transition:background .15s,color .15s,border-color .15s,transform .15s;
+  }
+  .btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px);}
+  .btn svg{width:16px;height:16px;flex:none;}
+  .btn.ghost{background:transparent;color:var(--ink);}
+  .btn.ghost:hover{color:#fff;background:var(--accent);border-color:var(--accent);}
+  footer{padding-block:30px 46px;font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:16px;}
+  .empty{padding:30px 0;color:var(--muted);font-size:14px;}
+
+  @media (max-width:900px){
+    .hero{padding-block:48px 38px;}
+  }
+  @media (max-width:760px){
+    .facts{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .fact b{font-size:32px;}
+    .rec{padding:22px 20px;}
+    .rec h3{font-size:24px;max-width:none;}
+    .rec-date{margin-left:0;width:100%;}
+    .pub{grid-template-columns:1fr;gap:6px;}
+    .sec-head p{margin-left:0;width:100%;}
+    .contact{padding:30px 20px;}
+    .topnav{gap:14px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top"><i></i>Brinda Udayakumar</a>
+    <nav class="topnav">
+      <a href="#work">Work</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Toolkit</a>
+      <a class="cta" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</div>
+
+<main id="top">
+
+  <div class="wrap hero">
+    <div>
+      <div class="plate">
+        <p class="eyebrow">Software engineering &middot; computer vision &middot; applied ML</p>
+        <h1>Brinda<span>Udayakumar</span></h1>
+      </div>
+      <p class="lede">
+        I build systems that have to be right about what they are looking at. Most of my work sits where a model's
+        output becomes a decision: which drone is a target, which region of a chest X&#8209;ray is a lesion, which
+        symptom description maps to which disease. <em>The interesting part is almost never the architecture. It is
+        the evaluation.</em>
+      </p>
+      <div class="status">
+        <span><span class="dot"></span><b>MS Computer Science, Arizona State University</b> &middot; graduating May 2027</span>
+        <span>Graduate Research Assistant, autonomous systems &middot; Tempe, Arizona</span>
+        <span>Open to software engineering and ML/AI roles &middot; full time, internships and co&#8209;ops</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="wrap">
+    <div class="facts">
+      <div class="fact"><b>3.93<i>/4.0</i></b><span>MS CS GPA at ASU</span></div>
+      <div class="fact"><b>3<i> yrs</i></b><span>Software engineering in industry</span></div>
+      <div class="fact"><b>7</b><span>Research and build projects</span></div>
+      <div class="fact"><b>1</b><span>IEEE Xplore publication</span></div>
+    </div>
+  </div>
+
+  <!-- ============ WORK ============ -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p>Filter by domain</p>
+      </div>
+
+      <div class="filters" id="filters" role="group" aria-label="Filter projects by domain">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="autonomy" aria-pressed="false">Autonomy &amp; robotics</button>
+        <button class="chip" type="button" data-filter="vision" aria-pressed="false">Computer vision</button>
+        <button class="chip" type="button" data-filter="medical" aria-pressed="false">Medical AI</button>
+        <button class="chip" type="button" data-filter="nlp" aria-pressed="false">NLP &amp; LLMs</button>
+        <button class="chip" type="button" data-filter="ml" aria-pressed="false">Applied ML</button>
+        <button class="chip" type="button" data-filter="eng" aria-pressed="false">Engineering</button>
+      </div>
+
+      <div class="records" id="records">
+
+        <!-- 1 -->
+        <article class="rec" data-dom="autonomy" data-domain="autonomy vision">
+          <div class="rec-top">
+            <span class="rec-domain">Autonomy</span>
+            <span class="sep"></span>
+            <span class="rec-place">Graduate Research Assistant, Arizona State University</span>
+            <span class="live">Active</span>
+            <span class="rec-date">2025 &rarr; now</span>
+          </div>
+          <h3>Autonomous drone systems research</h3>
+          <p>
+            Research spanning perception and decision making for autonomous drones. I train and evaluate
+            YOLO11&#8209;OBB detectors for small aerial targets on RGB and infrared imagery across an NVIDIA A100
+            cluster, and wrote a custom rotated IoU evaluation pipeline because standard IoU misreports oriented boxes.
+            On the decision side I designed a real&#8209;time task allocation algorithm for a defending fleet, backed by
+            a Python simulation framework that measures failure across thousands of randomized engagements. A third
+            thread covers navigation without GPS using stereo visual inertial odometry integrated into PX4.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>YOLO11&#8209;OBB</b><span>Detector family</span></div>
+            <div class="metric"><b>RGB + IR</b><span>Sensor modalities</span></div>
+            <div class="metric"><b>A100</b><span>HPC training</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">Ultralytics</span><span class="tag">Python</span>
+            <span class="tag">Multi-agent systems</span><span class="tag">PX4 / MAVROS</span><span class="tag">SLURM</span>
+          </div>
+          <div class="links"><span class="link-slot">Details on request &middot; sponsored research</span></div>
+        </article>
+
+        <!-- 2 -->
+        <article class="rec" data-dom="nlp" data-domain="nlp medical">
+          <div class="rec-top">
+            <span class="rec-domain">NLP &amp; LLMs</span>
+            <span class="sep"></span>
+            <span class="rec-place">Arizona State University</span>
+            <span class="rec-date">Feb &ndash; Apr 2026</span>
+          </div>
+          <h3>NanoChat disease detection system</h3>
+          <p>
+            A conversational system that reads how people actually describe being unwell and maps it onto 721 disease
+            classes. The hard part was never the classifier. Free text like "my lower back has been burning since
+            Tuesday" has to become a structured symptom vector, so I built a hybrid extraction pipeline with synonym
+            matching and contextual body&#8209;part inference and fed it into a 561M parameter transformer LLM.
+            Top&#8209;5 accuracy above 97% matters more than top&#8209;1 here, because the output is a shortlist for a
+            clinician, not a diagnosis.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>83.78%</b><span>Top&#8209;1 accuracy</span></div>
+            <div class="metric"><b>97.30%</b><span>Top&#8209;5 accuracy</span></div>
+            <div class="metric"><b>721</b><span>Disease classes</span></div>
+            <div class="metric"><b>561M</b><span>Parameters</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Transformers</span><span class="tag">LLM fine-tuning</span>
+            <span class="tag">Python</span><span class="tag">Information extraction</span>
+          </div>
+          <div class="links">
+            <a class="link" href="https://github.com/Brinda-udayakumar/nanochat-disease-detection" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              View on GitHub
+            </a>
+            <span class="link-slot">Add demo video link</span>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="rec" data-dom="medical" data-domain="medical vision">
+          <div class="rec-top">
+            <span class="rec-domain">Medical AI</span>
+            <span class="sep"></span>
+            <span class="rec-place">Arizona State University</span>
+            <span class="rec-date">Sep &ndash; Nov 2025</span>
+          </div>
+          <h3>Unified chest X&#8209;ray analysis pipeline</h3>
+          <p>
+            One pipeline that classifies, segments and localizes lesions on chest radiographs, using a Swin Transformer
+            backbone for classification, Swin&#8209;UNet for segmentation and Mask R&#8209;CNN for lesion localization.
+            I ran it end to end across three public datasets with genuinely different labeling conventions,
+            ChestX&#8209;ray14, SIIM&#8209;ACR and VinDr&#8209;CXR, and reached performance comparable to published
+            baselines. Preprocessing, augmentation, training and prediction visualization are all part of the same
+            reproducible path.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>3</b><span>Public datasets</span></div>
+            <div class="metric"><b>3 tasks</b><span>Classify / segment / localize</span></div>
+            <div class="metric"><b>Baseline</b><span>Comparable results</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Swin Transformer</span><span class="tag">Swin-UNet</span>
+            <span class="tag">Mask R-CNN</span><span class="tag">PyTorch</span><span class="tag">Medical imaging</span>
+          </div>
+          <div class="links"><span class="link-slot">Add GitHub or demo video link</span></div>
+        </article>
+
+        <!-- 4 -->
+        <article class="rec" data-dom="nlp" data-domain="nlp vision">
+          <div class="rec-top">
+            <span class="rec-domain">NLP &amp; LLMs</span>
+            <span class="sep"></span>
+            <span class="rec-place">CSE 576, Arizona State University</span>
+            <span class="live">In progress</span>
+            <span class="rec-date">Fall 2026</span>
+          </div>
+          <h3>Question answering grounded in video frames</h3>
+          <p>
+            Video QA models answer confidently from language priors even when the evidence is not on screen. This
+            project attacks that by improving how frames are selected and represented before the question ever reaches
+            the model, so answers stay grounded in what a given frame actually shows. Currently in build.
+          </p>
+          <div class="tags">
+            <span class="tag">Vision-language models</span><span class="tag">Frame selection</span>
+            <span class="tag">Evaluation design</span>
+          </div>
+          <div class="links"><span class="link-slot">Write&#8209;up coming December 2026</span></div>
+        </article>
+
+        <!-- 5 -->
+        <article class="rec" data-dom="medical" data-domain="medical vision ml">
+          <div class="rec-top">
+            <span class="rec-domain">Medical AI</span>
+            <span class="sep"></span>
+            <span class="rec-place">Project lead, SRM Easwari Engineering College</span>
+            <span class="rec-date">Jan &ndash; Apr 2021</span>
+          </div>
+          <h3>Brain tumor and tuberculosis detection on the web</h3>
+          <p>
+            A deployed web application that screens brain MRI scans for tumors with a ResNet classifier and chest
+            X&#8209;rays for tuberculosis with MobileNetV2, chosen because the whole point was for it to run somewhere
+            modest rather than on a lab GPU. I led the team and built the architecture so an additional disease could be
+            added without touching the existing models. The work became an IEEE Xplore publication.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>2</b><span>Disease models deployed</span></div>
+            <div class="metric"><b>IEEE</b><span>Published outcome</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">ResNet</span><span class="tag">MobileNetV2</span>
+            <span class="tag">HTML / CSS / JS</span><span class="tag">Team lead</span>
+          </div>
+          <div class="links">
+            <a class="link" href="https://github.com/Brinda-udayakumar/Disease-detection/blob/main/README.md" target="_blank" rel="noopener">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              View on GitHub
+            </a>
+            <a class="link quiet" href="https://ieeexplore.ieee.org/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              IEEE Xplore paper
+            </a>
+            <span class="link-slot">Swap in the exact paper URL</span>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="rec" data-dom="ml" data-domain="ml">
+          <div class="rec-top">
+            <span class="rec-domain">Applied ML</span>
+            <span class="sep"></span>
+            <span class="rec-place">Project lead, SRM Easwari Engineering College</span>
+            <span class="rec-date">Feb &ndash; Apr 2020</span>
+          </div>
+          <h3>Cardiovascular disease prediction</h3>
+          <p>
+            A controlled comparison of logistic regression, naive Bayes, decision trees, SVM and random forest on
+            cardiovascular risk prediction, run so the differences between them were attributable to the models rather
+            than to inconsistent preprocessing. I led the team and owned the backend. It is the project where I learned
+            that a clean evaluation harness outlives whichever model wins.
+          </p>
+          <div class="metrics"><div class="metric"><b>5</b><span>Algorithms compared</span></div></div>
+          <div class="tags">
+            <span class="tag">scikit-learn</span><span class="tag">Feature engineering</span>
+            <span class="tag">Model comparison</span>
+          </div>
+          <div class="links"><span class="link-slot">Add GitHub link</span></div>
+        </article>
+
+        <!-- 7 -->
+        <article class="rec" data-dom="eng" data-domain="eng">
+          <div class="rec-top">
+            <span class="rec-domain">Engineering</span>
+            <span class="sep"></span>
+            <span class="rec-place">LTIMindtree</span>
+            <span class="rec-date">2021 &ndash; 2024</span>
+          </div>
+          <h3>Enterprise workflow automation pipeline</h3>
+          <p>
+            Nobody asked for this one. I watched a multi person manual workflow eat roughly six months of effort a year
+            and built a Python pipeline that compressed it to about a week of automated processing. It shipped into
+            production and earned formal recognition from management, and it is the reason I trust noticing over being
+            assigned.
+          </p>
+          <div class="metrics">
+            <div class="metric"><b>~6 mo</b><span>Manual effort before</span></div>
+            <div class="metric"><b>~1 wk</b><span>Automated after</span></div>
+          </div>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Automation</span>
+            <span class="tag">MySQL</span><span class="tag">Enterprise integration</span>
+          </div>
+          <div class="links"><span class="link-slot">Proprietary &middot; details on request</span></div>
+        </article>
+
+        <!-- 8 -->
+        <article class="rec" data-dom="eng" data-domain="eng">
+          <div class="rec-top">
+            <span class="rec-domain">Engineering</span>
+            <span class="sep"></span>
+            <span class="rec-place">New England Software Technology, freelance</span>
+            <span class="rec-date">May &ndash; Jul 2024</span>
+          </div>
+          <h3>Company website and product integration portal</h3>
+          <p>
+            Architected and launched the company's full&#8209;stack website as a freelancer, including a key product
+            integration feature in Python Flask that turned the site into a direct sales and information channel for
+            their flagship offering. I stayed on afterward for iterative enhancements, which is the part of freelance
+            work that actually tests whether you built it well.
+          </p>
+          <div class="tags">
+            <span class="tag">Flask</span><span class="tag">Full-stack</span>
+            <span class="tag">Python</span><span class="tag">Deployment</span>
+          </div>
+          <div class="links"><span class="link-slot">Add live site link</span></div>
+        </article>
+
+      </div>
+      <p class="empty" id="empty" hidden>No projects in that domain yet.</p>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section id="publications">
+    <div class="wrap">
+      <div class="sec-head"><h2>Publications and talks</h2></div>
+      <div class="pubs">
+        <div class="pub">
+          <span class="rec-date">Feb 2022</span>
+          <div>
+            <h3>Online Aid for Detecting Brain Tumor and Tuberculosis using Deep Learning</h3>
+            <p>Journal publication &middot; IEEE Xplore</p>
+          </div>
+        </div>
+        <div class="pub">
+          <span class="rec-date">Dec 2021</span>
+          <div>
+            <h3>International Conference on Forensics, Analytics, Big Data &amp; Security</h3>
+            <p>Presenter &middot; FABS 2021</p>
+          </div>
+        </div>
+        <div class="pub">
+          <span class="rec-date">Apr 2021</span>
+          <div>
+            <h3>2nd International e&#8209;Conference on Information, Communication and Networking</h3>
+            <p>Participant &middot; eICICN 2021</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <p>Three years in industry before graduate research</p>
+      </div>
+      <div class="roles">
+        <div class="role">
+          <span class="rec-date">Mar 2026 &rarr; now</span>
+          <h3>Graduate Research Assistant</h3>
+          <p class="org">Arizona State University &middot; Tempe, AZ</p>
+          <ul>
+            <li>Real&#8209;time multi&#8209;agent task allocation for autonomous defending fleets, with a simulation
+              framework for measuring failure across randomized engagements.</li>
+            <li>Detection model training and evaluation on RGB and infrared imagery, including a custom
+              rotated&#8209;IoU metric pipeline.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <span class="rec-date">Aug 2021 &ndash; Sep 2024</span>
+          <h3>Software Engineer</h3>
+          <p class="org">LTIMindtree &middot; Chennai, India</p>
+          <ul>
+            <li>Owned design and development of a new functional module end to end, translating business requirements
+              into data models, business rules and user journeys with minimal supervision.</li>
+            <li>Built front end flows, middle tier logic and MySQL back ends on the Jitterbit low code platform for HR,
+              payroll and requisition systems used by multiple enterprise clients.</li>
+            <li>Ran production support across those clients: incident triage, root cause analysis and fixes that
+              reduced recurrence.</li>
+            <li>Delivered enhancements across five production applications with a 15 member cross functional team.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <span class="rec-date">May &ndash; Jul 2024</span>
+          <h3>Software Engineer, freelance</h3>
+          <p class="org">New England Software Technology &middot; Texas, United States</p>
+          <ul>
+            <li>Architected and launched the company's full&#8209;stack website with a Flask based product integration
+              portal, then supported it through iterative post&#8209;launch releases.</li>
+          </ul>
+        </div>
+        <div class="role">
+          <span class="rec-date">Nov &ndash; Dec 2019</span>
+          <h3>Software Testing Engineer, intern</h3>
+          <p class="org">SPRobotics &middot; Chennai, India</p>
+          <ul>
+            <li>Built a Selenium and Python automated test suite for key user workflows, cutting manual testing time
+              and improving reliability.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Toolkit</h2>
+        <p>What I reach for, and why</p>
+      </div>
+      <div class="skills">
+        <div class="skill" data-dom="vision">
+          <h4>Vision</h4>
+          <p>YOLO11 and oriented bounding boxes, Swin Transformer, Swin&#8209;UNet, Mask R&#8209;CNN, ResNet,
+            MobileNetV2, explainability methods, custom IoU and mAP evaluation.</p>
+        </div>
+        <div class="skill" data-dom="nlp">
+          <h4>Language &amp; LLMs</h4>
+          <p>Transformer fine&#8209;tuning, information extraction from free text, retrieval augmented generation,
+            vision&#8209;language models, agentic frameworks.</p>
+        </div>
+        <div class="skill" data-dom="ml">
+          <h4>Core ML</h4>
+          <p>PyTorch, scikit&#8209;learn, XGBoost, tabular modeling, augmentation strategy, evaluation harness design,
+            error analysis.</p>
+        </div>
+        <div class="skill" data-dom="autonomy">
+          <h4>Autonomy</h4>
+          <p>Multi&#8209;agent task allocation, discrete event simulation, PX4 and MAVROS, ZED stereo VIO, sensor
+            fusion, mmWave radar.</p>
+        </div>
+        <div class="skill" data-dom="eng">
+          <h4>Engineering</h4>
+          <p>Python backend and automation, Flask, MySQL, Selenium, full&#8209;stack web, production support and root
+            cause analysis.</p>
+        </div>
+        <div class="skill" data-dom="medical">
+          <h4>Infrastructure</h4>
+          <p>NVIDIA A100 HPC clusters, SLURM job orchestration, distributed training, model serving, reproducible
+            pipelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact">
+        <p class="eyebrow">Currently looking</p>
+        <h2>Software and ML engineering roles, full time and internships</h2>
+        <p>
+          Three years shipping production software before graduate school, and two years since then on research where
+          the model has to survive contact with messy real data. I am useful on either side of that line, and best on
+          teams where somebody has to care about whether the evaluation is honest. If that sounds like your team, get
+          in touch.
+        </p>
+        <div class="contact-links">
+          <a class="btn" href="mailto:budayaku@asu.edu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Email me
+          </a>
+          <a class="btn ghost" href="https://github.com/Brinda-udayakumar" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn ghost" href="#" target="_blank" rel="noopener">Resume PDF</a>
+        </div>
+      </div>
+      <footer>
+        <span class="mono">budayaku@asu.edu</span>
+        <span class="mono">Tempe, AZ</span>
+        <span class="mono">Updated September 2026</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+  (function () {
+    var chips = Array.prototype.slice.call(document.querySelectorAll('#filters .chip'));
+    var records = Array.prototype.slice.call(document.querySelectorAll('#records .rec'));
+    var empty = document.getElementById('empty');
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        var key = chip.getAttribute('data-filter');
+        chips.forEach(function (c) { c.setAttribute('aria-pressed', String(c === chip)); });
+        var shown = 0;
+        records.forEach(function (rec) {
+          var match = key === 'all' || rec.getAttribute('data-domain').split(' ').indexOf(key) > -1;
+          rec.hidden = !match;
+          if (match) shown++;
+        });
+        empty.hidden = shown > 0;
+      });
+    });
+  })();
+</script>
+</body>
+</html>
